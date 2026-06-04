@@ -1,0 +1,430 @@
+/* ========================================
+   EXPENSE TRACKER - FIXED FOOTER NO GAP
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(
+        135deg,
+        #e8a3c2 0%,
+        #d988ae 30%,
+        #c59cf0 60%,
+        #b18af0 80%,
+        #9f75f5 100%
+    );
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Main content wrapper - pushes footer down */
+.main-wrapper {
+    flex: 1;
+}
+
+/* Container */
+.container {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px 20px 15px;
+}
+
+/* ========================================
+   NAVBAR STYLES
+   ======================================== */
+.navbar {
+    background: rgba(223, 94, 147, 0.95);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    display: flex;
+    padding: 14px 0;
+    margin-bottom: 20px;
+}
+
+/* Logo/Brand */
+.navbar-brand {
+    color: #000 !important;
+    font-weight: 700;
+}
+
+.navbar-brand:hover {
+    color: #222 !important;
+}
+
+/* Navigation Links */
+.nav-link {
+    color: #000 !important;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: #333 !important;
+}
+
+/* Logout Button */
+.logout-btn {
+    color: #000 !important;
+}
+
+.logout-btn:hover {
+    color: #444 !important;
+}
+
+/* ========================================
+   CARD STYLES
+   ======================================== */
+.card {
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background: #efc2df;
+    color: #6b3fa0;
+    border-radius: 15px 15px 0 0;
+    padding: 15px 20px;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* ========================================
+   FILTER SECTION
+   ======================================== */
+.filter-section {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+/* ========================================
+   TABLE STYLES
+   ======================================== */
+.table {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.table thead {
+    background: #e7c0f8;
+    color: #5b2c6f;
+}
+
+.table thead th {
+    border: none;
+    padding: 12px;
+    font-weight: 600;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #f0e0e8;
+}
+
+.table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.table tbody td {
+    padding: 10px 12px;
+    vertical-align: middle;
+}
+
+/* ========================================
+   STATISTICS CARDS
+   ======================================== */
+.stat-card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.2s;
+    margin-bottom: 20px;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card .card-body {
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.stat-card i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.stat-card h2, .stat-card h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.stat-card p {
+    margin: 0;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Stat Card Colors */
+.stat-card:nth-child(1) .card-body {
+    background: linear-gradient(135deg,#f48fb1,#ec407a);
+}
+
+.stat-card:nth-child(2) .card-body {
+    background: linear-gradient(135deg,#ffb6c1,#ff8fab);
+}
+
+.stat-card:nth-child(3) .card-body {
+    background: linear-gradient(135deg,#d8b4fe,#b794f4);
+}
+
+.stat-card:nth-child(4) .card-body {
+    background: linear-gradient(135deg,#c4b5fd,#a78bfa);
+}
+
+/* ========================================
+   BUTTON STYLES
+   ======================================== */
+.btn-primary {
+    background: #c084fc;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background: #a855f7;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: #f472b6;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-weight: 500;
+}
+
+.btn-success:hover {
+    background: #ec4899;
+    transform: translateY(-2px);
+}
+
+.btn-warning {
+    background: #f9a8d4;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-weight: 500;
+    color: #5b2c6f;
+}
+
+.btn-warning:hover {
+    background: #f472b6;
+}
+
+.btn-danger {
+    background: #ec4899;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-weight: 500;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #db2777;
+}
+
+.btn-info {
+    background: #c084fc;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-weight: 500;
+    color: white;
+}
+
+/* ========================================
+   FORM STYLES
+   ======================================== */
+.form-control, .form-select {
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.5);
+    padding: 10px 15px;
+    transition: 0.2s;
+    background: rgba(255,255,255,0.9);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #c084fc;
+    box-shadow: 0 0 0 3px rgba(192, 132, 252, 0.2);
+    outline: none;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #4a3a5a;
+    margin-bottom: 8px;
+}
+
+/* ========================================
+   ALERT STYLES
+   ======================================== */
+.alert {
+    border-radius: 12px;
+    border: none;
+    padding: 12px 20px;
+}
+
+.alert-warning {
+    background: #fde2e4;
+    color: #8a5a5a;
+    border-left: 4px solid #f472b6;
+}
+
+.alert-success {
+    background: #d8f3dc;
+    color: #4a6a5a;
+    border-left: 4px solid #a8c9a5;
+}
+
+/* ========================================
+   PROGRESS BAR
+   ======================================== */
+.progress {
+    height: 25px;
+    border-radius: 20px;
+    background-color: #f0e0e8;
+}
+
+.progress-bar {
+    background: #c084fc;
+    border-radius: 20px;
+    font-weight: 600;
+    line-height: 25px;
+}
+
+/* ========================================
+   BADGE STYLES
+   ======================================== */
+.badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* ========================================
+   CHART CONTAINERS
+   ======================================== */
+canvas {
+    max-height: 320px;
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+/* ========================================
+   FOOTER - FIXED AT BOTTOM (NO GAP)
+   ======================================== */
+footer {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer i {
+    color: #f472b6;
+}
+
+/* ========================================
+   RESPONSIVE STYLES
+   ======================================== */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .stat-card h2, .stat-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .stat-card i {
+        font-size: 1.5rem;
+    }
+    
+    .card-header {
+        font-size: 0.9rem;
+        padding: 12px 15px;
+    }
+    
+    .btn-primary {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+    
+    .table {
+        font-size: 0.7rem;
+    }
+    
+    .table .btn-sm {
+        padding: 2px 8px;
+        font-size: 0.6rem;
+    }
+}
+
+/* ========================================
+   CUSTOM SCROLLBAR
+   ======================================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #a4a4a4;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #777777;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9b9b9b;
+}

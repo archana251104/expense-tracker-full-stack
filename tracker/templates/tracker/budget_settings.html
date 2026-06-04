@@ -1,0 +1,94 @@
+{% extends 'tracker/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-wallet"></i> Set Monthly Budget
+            </div>
+            <div class="card-body">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        {{ form.category }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Monthly Limit (₹)</label>
+                        {{ form.monthly_limit }}
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="fas fa-save"></i> Set Budget
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-chart-pie"></i> Current Month Budgets
+            </div>
+            <div class="card-body">
+                {% if spending_data %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Limit (₹)</th>
+                                <th>Spent (₹)</th>
+                                <th>Remaining (₹)</th>
+                                <th>Used</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for data in spending_data %}
+                            <tr>
+                                <td>{{ data.category }}</td>
+                                <td>₹{{ data.limit|floatformat:2 }}</td>
+                                <td class="{% if data.percentage > 100 %}text-danger{% else %}text-success{% endif %}">
+                                    ₹{{ data.spent|floatformat:2 }}
+                                </td>
+                                <td class="{% if data.remaining < 0 %}text-danger{% else %}text-success{% endif %}">
+                                    ₹{{ data.remaining|floatformat:2 }}
+                                </td>
+                                <td>
+                                    <div class="progress" style="height: 25px;">
+                                        <div class="progress-bar {% if data.percentage > 100 %}bg-danger{% else %}bg-success{% endif %}" 
+                                             style="width: {% if data.percentage > 100 %}100{% else %}{{ data.percentage }}{% endif %}%">
+                                            {{ data.percentage }}%
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-5">
+                    <i class="fas fa-info-circle fa-4x text-muted mb-3"></i>
+                    <p class="text-muted">No budgets set for this month.</p>
+                    <p class="text-muted small">Use the form on the left to set your monthly budget.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
