@@ -1,4 +1,6 @@
-asgiref==3.11.1
-Django==6.0.6
-sqlparse==0.5.5
-tzdata==2026.2
+# Create requirements.txt file
+echo asgiref==3.8.1 > requirements.txt
+echo Django==5.0.6 >> requirements.txt
+echo gunicorn==22.0.0 >> requirements.txt
+echo sqlparse==0.5.1 >> requirements.txt
+echo whitenoise==6.7.0 >> requirements.txt
