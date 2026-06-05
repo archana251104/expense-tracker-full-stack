@@ -70,7 +70,7 @@
                                 <td>
                                     <div class="progress" style="height: 25px;">
                                         <div class="progress-bar {% if data.percentage > 100 %}bg-danger{% else %}bg-success{% endif %}" 
-                                             style="width: {% if data.percentage > 100 %}100{% else %}{{ data.percentage }}{% endif %}%">
+                                             style="width: 0%;" data-width="{{ data.width }}">
                                             {{ data.percentage }}%
                                         </div>
                                     </div>
@@ -91,4 +91,4 @@
         </div>
     </div>
 </div>
-{% endblock %}
+{% endblock %} 

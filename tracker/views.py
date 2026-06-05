@@ -208,13 +208,15 @@ def budget_settings(request):
         
         remaining = float(budget.monthly_limit) - float(spent)
         percentage = (float(spent) / float(budget.monthly_limit)) * 100 if float(budget.monthly_limit) > 0 else 0
+        width = max(0, min(100, round(percentage, 1)))
         
         spending_data.append({
             'category': budget.category,
             'limit': float(budget.monthly_limit),
             'spent': float(spent),
             'remaining': round(remaining, 2),
-            'percentage': round(percentage, 1)
+            'percentage': round(percentage, 1),
+            'width': width,
         })
     
     context = {
