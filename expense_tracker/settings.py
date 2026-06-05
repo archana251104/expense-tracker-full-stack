@@ -3,14 +3,20 @@ Django settings for expense_tracker project.
 """
 
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 SECRET_KEY = 'django-insecure-your-secret-key-change-this'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'full-stack-daily-expense-tracker.onrender.com', 
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
